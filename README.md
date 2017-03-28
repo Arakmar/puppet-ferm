@@ -34,8 +34,7 @@ Variables used :
 * $chain="INPUT",
 * $rule,
 * $description="",
-* $prio="00",
-* $notarule=false
+* $prio="00"
 
 ferm::hook
 ----------
@@ -60,8 +59,7 @@ Allow mDNS/Avahi on the local network
         chain       => "INPUT",
         rules       => "saddr 192.168.0.0/24 proto (tcp udp) dport mdns ACCEPT",
         description => "Allow mdns/avahi",
-        prio        => "00",
-        notarule    => false
+        prio        => "00"
     }
 
 Allow incoming HTTP request on IPv4 and IPv6:
@@ -73,8 +71,7 @@ Allow incoming HTTP request on IPv4 and IPv6:
         chain       => "INPUT",
         rules       => "proto tcp dport http ACCEPT",
         description => "Allow HTTP",
-        prio        => "00",
-        notarule    => false
+        prio        => "00"
     }
 
 

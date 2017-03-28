@@ -6,8 +6,7 @@
 	$rules,
 	$description="",
 	$domain = "ip",
-	$prio="00",
-	$notarule=false
+	$prio="00"
  ) 
  {
 	file { "${ferm::ferm_dir}/rules.d/${prio}_${name}":
