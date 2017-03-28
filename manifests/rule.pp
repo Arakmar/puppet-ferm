@@ -1,6 +1,7 @@
  define ferm::rule
  (
 	$host = false,
+	$interface = undef,
 	$table="filter",
 	$chain="INPUT",
 	$rules,

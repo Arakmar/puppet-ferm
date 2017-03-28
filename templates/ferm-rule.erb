@@ -9,14 +9,20 @@ domain (<%= @domain %>) {
 <% if @host and not (@host.is_a? Array and @host.empty?) -%>
             saddr (<% if (@host.is_a? String) -%><%= @host -%><% elsif (@host.is_a? Array) -%><%= @host.join(' ') -%><% end -%>) {
 <% end -%>
+<% if @interface -%>
+                interface <%= @interface -%> {
+<% end -%>
 <% if (defined? @rules) -%>
 <% if (@rules.is_a? String) -%>
-                <%= @rules %>;
+                    <%= @rules %>;
 <% elsif (@rules.is_a? Array) -%>
 <% @rules.each do |ns| -%>
-                <%= ns %>;
+                    <%= ns %>;
 <% end -%>
 <% end -%>
+<% end -%>
+<% if @interface -%>
+                }
 <% end -%>
 <% if @host and not (@host.is_a? Array and @host.empty?) -%>
             }
