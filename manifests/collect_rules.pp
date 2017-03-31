@@ -1,4 +1,3 @@
-define ferm::collect_rules()
-{
-	Ferm::Rule <<| tag == $name |>>
+define ferm::collect_rules {
+  Ferm::Rule <<| tag == $name |>>
 }

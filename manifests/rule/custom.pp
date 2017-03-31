@@ -1,9 +1,7 @@
-define ferm::rule::custom
-(
+define ferm::rule::custom (
   $content = '',
-  $prio = "50",
-)
-{
+  $prio    = "50",
+) {
   file { "/etc/ferm/rules.d/${prio}_${name}":
     ensure  => present,
     owner   => root,
