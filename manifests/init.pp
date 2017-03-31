@@ -1,5 +1,9 @@
 class ferm (
-  $conf_source = undef
+  $conf_source  = undef,
+  $default_input_policy = $ferm::params::default_input_policy,
+  $default_output_policy = $ferm::params::default_output_policy,
+  $default_allow_ssh  = $ferm::params::default_allow_ssh,
+  $default_allow_icmp = $ferm::params::default_allow_icmp,
 ) inherits ferm::params {
   if $conf_source {
     $conf_template = undef

@@ -10,24 +10,26 @@ domain (ip ip6) {
     table filter {
 
         chain INPUT {
-            policy DROP;
+            policy <%= @default_input_policy %>;
             # connection tracking
             mod state state INVALID DROP;
             mod state state (ESTABLISHED RELATED) ACCEPT;
-
+<% if @default_allow_icmp -%>
             # allow ping
             proto icmp ACCEPT;
+<% end -%>
 
             # allow local packet
             interface lo ACCEPT;
 
+<% if @default_allow_ssh -%>
             # allow SSH connections
             proto tcp dport ssh ACCEPT;
-
+<% end -%>
         }
 
         chain OUTPUT {
-            policy ACCEPT;
+            policy <%= @default_output_policy %>;
             # connection tracking
             mod state state (ESTABLISHED RELATED) ACCEPT;
         }
