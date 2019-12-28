@@ -5,7 +5,7 @@ define ferm::rule (
   $chain       = "INPUT",
   $rules,
   $description = "",
-  $domain      = "ip",
+  $domain      = ['ip', 'ip6'],
   $prio        = "00"
 ) {
   file { "${ferm::ferm_dir}/rules.d/${prio}_${name}":

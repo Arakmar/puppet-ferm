@@ -3,7 +3,9 @@
 ## <%= @description %>
 ##
 
-domain (<%= @domain %>) {
+<% if @domain and not (@domain.is_a? Array and @domain.empty?) -%>
+domain (<% if (@domain.is_a? String) -%><%= @domain -%><% elsif (@domain.is_a? Array) -%><%= @domain.join(' ') -%><% end -%>) {
+<% end -%>
     table <%= @table %> {
         chain <%= @chain %> {
 <% if @host and not (@host.is_a? Array and @host.empty?) -%>
@@ -29,4 +31,6 @@ domain (<%= @domain %>) {
 <% end -%>
         }
     }
+<% if @domain and not (@domain.is_a? Array and @domain.empty?) -%>
 }
+<% end -%>
