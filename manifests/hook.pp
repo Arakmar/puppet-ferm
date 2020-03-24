@@ -1,6 +1,7 @@
 define ferm::hook (
   $description  = undef,
-  $content_hook = undef
+  $content_hook,
+  $type
 ) {
   file { "${ferm::ferm_dir}/conf.d/hook_${name}":
     ensure  => present,
