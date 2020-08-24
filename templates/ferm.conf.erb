@@ -34,12 +34,14 @@ domain (ip ip6) {
             mod state state (ESTABLISHED RELATED) ACCEPT;
         }
 
+<% if @allow_forwarding -%>
         chain FORWARD {
             policy ACCEPT;
             # connection tracking
             mod state state INVALID DROP;
             mod state state (ESTABLISHED RELATED) ACCEPT;
         }
+<% end -%>
     }
 }
 

@@ -4,6 +4,7 @@ class ferm::params {
   $default_output_policy = 'ACCEPT'
   $default_allow_ssh  = true
   $default_allow_icmp = true
+  $default_allow_forwarding = true
 
   case $::osfamily {
     'Debian': {
