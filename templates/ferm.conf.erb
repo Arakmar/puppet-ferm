@@ -43,7 +43,7 @@ domain (ip ip6) {
         }
 <% else -%>
         chain FORWARD {
-            POLICY DROP;
+            policy DROP;
             # connection tracking
             mod state state INVALID DROP;
             mod state state (ESTABLISHED RELATED) ACCEPT;
