@@ -6,7 +6,7 @@ class ferm::params {
   $default_allow_icmp = true
   $default_allow_forwarding = true
 
-  case $::osfamily {
+  case $facts['os']['family'] {
     'Debian': {
       $ferm_config = '/etc/ferm/ferm.conf'
     }
