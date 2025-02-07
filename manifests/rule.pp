@@ -6,7 +6,7 @@ define ferm::rule (
   $rules,
   $description = "",
   $domain      = ['ip', 'ip6'],
-  $prio        = "00"
+  $prio        = "50"
 ) {
   file { "${ferm::ferm_dir}/rules.d/${prio}_${name}":
     ensure  => present,
