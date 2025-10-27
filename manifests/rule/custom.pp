@@ -1,5 +1,6 @@
 define ferm::rule::custom (
-  $content = '',
+  $content = undef,
+  $source  = undef,
   $prio    = "50",
 ) {
   file { "/etc/ferm/rules.d/${prio}_${name}":
@@ -8,6 +9,7 @@ define ferm::rule::custom (
     group   => root,
     mode    => '0400',
     content => $content,
+    source  => $source,
     notify  => Service['ferm'];
   }
 }
